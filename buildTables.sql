@@ -22,28 +22,29 @@ CREATE TABLE tblUSER_HEIGHT_WEIGHT(
 	UserHeightWeightID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	UserID int FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL,
 	HWDate date NOT NULL,
-	UserHeight number(5,2),
-	UserWeight number(5,2)
+	UserHeight decimal(5,2),
+	UserWeight decimal(5,2)
 );
 
 CREATE TABLE tblMESSAGE(
 	MessageID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	MessageRecipietUserID int FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL,
 	MessageSenderUserID int FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL,
-	MessageTimeStamp timestamp NOT NULL,
+	MessageTimestamp timestamp NOT NULL,
 	MessageContent varchar(250) NOT NULL
 );
 
 CREATE TABLE tblUSER_FRIEND(
-	UserID1 int PRIMARY KEY FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL,
-	UserID2 int PRIMARY KEY FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL
+	UserID1 int FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL,
+	UserID2 int FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL,
+	CONSTRAINT UserFriendPK PRIMARY KEY(UserID1, UserID2)
 );
 
 CREATE TABLE tblSLEEP(
 	SleepID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	UserID int FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL,
-	SleepStartTime timestamp NOT NULL,
-	SleepEndTime timestamp NOT NULL,
+	SleepStartTime datetime NOT NULL,
+	SleepEndTime datetime NOT NULL,
 	SleepComment varchar(250)
 );
 
@@ -61,15 +62,16 @@ CREATE TABLE tblGROUP(
 );
 
 CREATE TABLE tblUSER_GROUPS(
-	UserID int PRIMARY KEY FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL,
-	GroupID int PRIMARY KEY FOREIGN KEY REFERENCES tblGROUP(GroupID) NOT NULL,
+	UserID int FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL,
+	GroupID int FOREIGN KEY REFERENCES tblGROUP(GroupID) NOT NULL,
+	CONSTRAINT UserGroupPK PRIMARY KEY(UserID, GroupID)
 );
 
 CREATE TABLE tblMEAL(
 	MealID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	UserID int FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL,
-	MealDate timestamp NOT NULL,
-	MealComment varchat(250)
+	MealDate datetime NOT NULL,
+	MealComment varchar(250)
 );
 
 CREATE TABLE tblFOOD_GROUP(
@@ -89,8 +91,8 @@ CREATE TABLE tblMEAL_ITEM(
 CREATE TABLE tblLOCATION(
 	LocationID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	LocationName varchar(60) NOT NULL,
-	LocationLat number(8,5) NOT NULL,
-	LocationLong number(8,5) NOT NULL
+	LocationLat decimal(8,5) NOT NULL,
+	LocationLong decimal(8,5) NOT NULL
 );
 
 CREATE TABLE tblWORKOUT_TYPE(
@@ -105,8 +107,8 @@ CREATE TABLE tblWORKOUT(
 	UserID int FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL,
 	WorkoutTypeID int FOREIGN KEY REFERENCES tblWORKOUT_TYPE(WorkoutTypeID) NOT NULL,
 	LocationID int FOREIGN KEY REFERENCES tblLOCATION(LocationID) NOT NULL,
-	WorkoutStartTime timestamp NOT NULL,
-	WorkoutEndTime timestamp NOT NULL,
+	WorkoutStartTime datetime NOT NULL,
+	WorkoutEndTime datetime NOT NULL,
 	WorkoutComment varchar(250),
 	WorkoutBandSteps int,
 	WorkoutCaloriesBurned int
@@ -125,9 +127,10 @@ CREATE TABLE tblBADGES(
 );
 
 CREATE TABLE tblWORKOUT_TYPE_BADGES(
-	BadgeID int PRIMARY KEY FOREIGN KEY REFERENCES tblBADGES(BadgeID) NOT NULL,
-	WorkoutTypeID int PRIMARY KEY FOREIGN KEY REFERENCES tblWORKOUT_TYPE(WorkoutTypeID) NOT NULL,
-	WorkoutPtsReq int NOT NULL
+	BadgeID int FOREIGN KEY REFERENCES tblBADGES(BadgeID) NOT NULL,
+	WorkoutTypeID int FOREIGN KEY REFERENCES tblWORKOUT_TYPE(WorkoutTypeID) NOT NULL,
+	WorkoutPtsReq int NOT NULL,
+	CONSTRAINT WorkoutTypeBadgesPK PRIMARY KEY(BadgeID, WorkoutTypeID)
 );
 
 CREATE TABLE tblPLANNED_ACTIVITY(
@@ -136,14 +139,15 @@ CREATE TABLE tblPLANNED_ACTIVITY(
 	LocationID int FOREIGN KEY REFERENCES tblLOCATION(LocationID),
 	IsGroup bit NOT NULL,
 	ActivityName varchar(60) NOT NULL,
-	ActivityStartDate timestamp NOT NULL,
-	ActivityEndDate timestamp NOT NULL,
+	ActivityStartDate datetime NOT NULL,
+	ActivityEndDate datetime NOT NULL,
 	ActivityDesc varchar(250)
 );
 
 CREATE TABLE tblGROUP_WORKOUT_TYPE(
-	GroupID int PRIMARY KEY FOREIGN KEY REFERENCES tblGROUP(GroupID) NOT NULL,
-	WorkoutTypeID int PRIMARY KEY FOREIGN KEY REFERENCES tblWORKOUT_TYPE(WorkoutTypeID) NOT NULL
+	GroupID int FOREIGN KEY REFERENCES tblGROUP(GroupID) NOT NULL,
+	WorkoutTypeID int FOREIGN KEY REFERENCES tblWORKOUT_TYPE(WorkoutTypeID) NOT NULL,
+	CONSTRAINT GroupWorkoutTypePK PRIMARY KEY(GroupID, WorkoutTypeID)
 );
 
 CREATE TABLE tblGROUP_ACTIVITY(
@@ -153,6 +157,7 @@ CREATE TABLE tblGROUP_ACTIVITY(
 );
 
 CREATE TABLE tblGROUP_ACTIVITY_GROUP(
-	GroupID int PRIMARY KEY FOREIGN KEY REFERENCES tblGROUP(GroupID) NOT NULL,
-	GroupActivityID int PRIMARY KEY FOREIGN KEY REFERENCES tblGROUP_ACTIVITY(GroupActivityID) NOT NULL,
+	GroupID int FOREIGN KEY REFERENCES tblGROUP(GroupID) NOT NULL,
+	GroupActivityID int FOREIGN KEY REFERENCES tblGROUP_ACTIVITY(GroupActivityID) NOT NULL,
+	CONSTRAINT GroupActivityGroupPK PRIMARY KEY(GroupID, GroupActivityID)
 );
