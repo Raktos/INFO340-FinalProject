@@ -1,3 +1,8 @@
+/*
+** Workout Facebook database creation of the base tables
+** Jason Ho
+*/
+
 CREATE DATABASE WORKOUT_FACEBOOK;
 
 USE WORKOUT_FACEBOOK;
