@@ -303,19 +303,17 @@ INSERT INTO tblPLANNED_ACTIVITY([UserID],[LocationID],[IsGroup],[ActivityName],[
 INSERT INTO tblPLANNED_ACTIVITY([UserID],[LocationID],[IsGroup],[ActivityName],[ActivityStartDate],[ActivityEndDate]) VALUES(11,1,0,'eget','2014-03-06 00:00:00','2014-03-06 00:00:00');
 
 --Creates an associative entity for the type associated with groups into tblGROUP_WORKOUT_TYPE
-INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(7,12);
-INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(6,14);
+INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(2,12);
+INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(3,14);
 INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(3,11);
-INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(6,4);
-INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(7,6);
-INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(9,14);
-INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(8,5);
-INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(6,1);
-INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(10,11);
+INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(5,4);
+INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(1,6);
+INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(4,14);
+INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(4,5);
+INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(4,1);
+INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(2,11);
 
 --Associates an exisiting activity with an exisiting group and inserts it into tblGROUP_ACTIVITY
 INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(4,3);
-INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(10,9);
+INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(2,9);
 INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(5,5);
-
-Select * FROM tblMEAL_ITEM
