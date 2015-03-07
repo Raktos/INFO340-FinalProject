@@ -69,7 +69,6 @@ INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(12,10);
 INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(11,7);
 INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(5,12);
 INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(8,9);
-INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(13,15);
 INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(3,7);
 INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(13,15);
 INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(10,13);
@@ -79,7 +78,6 @@ INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(12,9);
 INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(4,15);
 INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(10,7);
 INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(15,2);
-INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(8,9);
 INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(15,6);
 INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(2,15);
 INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(7,9);
@@ -134,8 +132,6 @@ INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(8,1);
 INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(4,1);
 INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(2,1);
 INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(3,3);
-INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(11,2);
-INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(12,3);
 INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(6,2);
 INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(11,2);
 
@@ -152,12 +148,12 @@ INSERT INTO tblMEAL([UserID],[MealDate],[MealComment]) VALUES(9,'2014-07-26 04:5
 INSERT INTO tblMEAL([UserID],[MealDate],[MealComment]) VALUES(10,'2014-07-09 07:42:31','eleifend egestas. Sed pharetra, felis eget varius ultrices, mauris ipsum');
 
 --Creates the 6 food groups that can be used into tblFOOD_GROUP
-INSERT INTO tblFOOD_GROUP([FoodGroupID],[FoodGroupName],[FoodGroupDes]) VALUES(1,'Sweets & Oils,','feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem');
-INSERT INTO tblFOOD_GROUP([FoodGroupID],[FoodGroupName],[FoodGroupDes]) VALUES(2,'Dairy','convallis convallis dolor. Quisque tincidunt pede ac urna. Ut tincidunt');
-INSERT INTO tblFOOD_GROUP([FoodGroupID],[FoodGroupName],[FoodGroupDes]) VALUES(3,'Fruit','Quisque porttitor eros nec tellus. Nunc lectus pede, ultrices a,');
-INSERT INTO tblFOOD_GROUP([FoodGroupID],[FoodGroupName],[FoodGroupDes]) VALUES(4,'Vegetables','non leo. Vivamus nibh dolor, nonummy ac, feugiat non, lobortis');
-INSERT INTO tblFOOD_GROUP([FoodGroupID],[FoodGroupName],[FoodGroupDes]) VALUES(5,'Rice & Grains','eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis');
-INSERT INTO tblFOOD_GROUP([FoodGroupID],[FoodGroupName],[FoodGroupDes]) VALUES(6,'Meat & Beans','Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam erat');
+INSERT INTO tblFOOD_GROUP([FoodGroupName],[FoodGroupDesc]) VALUES('Sweets & Oils,','feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem');
+INSERT INTO tblFOOD_GROUP([FoodGroupName],[FoodGroupDesc]) VALUES('Dairy','convallis convallis dolor. Quisque tincidunt pede ac urna. Ut tincidunt');
+INSERT INTO tblFOOD_GROUP([FoodGroupName],[FoodGroupDesc]) VALUES('Fruit','Quisque porttitor eros nec tellus. Nunc lectus pede, ultrices a,');
+INSERT INTO tblFOOD_GROUP([FoodGroupName],[FoodGroupDesc]) VALUES('Vegetables','non leo. Vivamus nibh dolor, nonummy ac, feugiat non, lobortis');
+INSERT INTO tblFOOD_GROUP([FoodGroupName],[FoodGroupDesc]) VALUES('Rice & Grains','eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis');
+INSERT INTO tblFOOD_GROUP([FoodGroupName],[FoodGroupDesc]) VALUES('Meat & Beans','Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam erat');
 
 --Inserts a meal item which is part of a meal into tblMEAL_ITEM
 INSERT INTO tblMEAL_ITEM([MealID],[FoodGroupID],[MealItemDesc],[MealItemCalories]) VALUES(1,3,'et arcu',179);
@@ -194,26 +190,26 @@ INSERT INTO tblLOCATION([LocationName],[LocationLat],[LocationLong]) VALUES('IMA
 INSERT INTO tblLOCATION([LocationName],[LocationLat],[LocationLong]) VALUES('Archery Field',90,93);
 
 --Inserts different workout types and their description into tblWORKOUT_TYPE
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Soccer','Praesent interdum ligula eu enim. Etiam imperdiet dictum magna. Ut',42);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Tennis','urna. Ut tincidunt vehicula risus. Nulla eget metus eu erat',34);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Running','et pede. Nunc sed orci lobortis augue scelerisque mollis. Phasellus',83);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Boating','Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer vulputate,',26);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Basketball','vel nisl. Quisque fringilla euismod enim. Etiam gravida molestie arcu.',22);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Football','sagittis lobortis mauris. Suspendisse aliquet molestie tellus. Aenean egestas hendrerit',74);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Swimming','congue turpis. In condimentum. Donec at arcu. Vestibulum ante ipsum',75);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Frisbee','erat volutpat. Nulla dignissim. Maecenas ornare egestas ligula. Nullam feugiat',97);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Volleyball','nibh enim, gravida sit amet, dapibus id, blandit at, nisi.',63);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Badmitton','eros non enim commodo hendrerit. Donec porttitor tellus non magna.',99);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Softball','Nunc quis arcu vel quam dignissim pharetra. Nam ac nulla.',47);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Baseball','sodales. Mauris blandit enim consequat purus. Maecenas libero est, congue',28);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Shotput','Fusce diam nunc, ullamcorper eu, euismod ac, fermentum vel, mauris.',68);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Jogging','consectetuer, cursus et, magna. Praesent interdum ligula eu enim. Etiam',76);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Rugby','nec tellus. Nunc lectus pede, ultrices a, auctor non, feugiat',98);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Archery','Donec vitae erat vel pede blandit congue. In scelerisque scelerisque',27);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('WaterPolo','Maecenas mi felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus.',33);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Fishing','cursus et, magna. Praesent interdum ligula eu enim. Etiam imperdiet',48);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('HighJump','ac sem ut dolor dapibus gravida. Aliquam tincidunt, nunc ac',36);
-INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Bowling','montes, nascetur ridiculus mus. Aenean eget magna. Suspendisse tristique neque',60);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Soccer','Praesent interdum ligula eu enim. Etiam imperdiet dictum magna. Ut',42);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Tennis','urna. Ut tincidunt vehicula risus. Nulla eget metus eu erat',34);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Running','et pede. Nunc sed orci lobortis augue scelerisque mollis. Phasellus',83);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Boating','Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer vulputate,',26);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Basketball','vel nisl. Quisque fringilla euismod enim. Etiam gravida molestie arcu.',22);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Football','sagittis lobortis mauris. Suspendisse aliquet molestie tellus. Aenean egestas hendrerit',74);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Swimming','congue turpis. In condimentum. Donec at arcu. Vestibulum ante ipsum',75);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Frisbee','erat volutpat. Nulla dignissim. Maecenas ornare egestas ligula. Nullam feugiat',97);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Volleyball','nibh enim, gravida sit amet, dapibus id, blandit at, nisi.',63);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Badmitton','eros non enim commodo hendrerit. Donec porttitor tellus non magna.',99);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Softball','Nunc quis arcu vel quam dignissim pharetra. Nam ac nulla.',47);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Baseball','sodales. Mauris blandit enim consequat purus. Maecenas libero est, congue',28);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Shotput','Fusce diam nunc, ullamcorper eu, euismod ac, fermentum vel, mauris.',68);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Jogging','consectetuer, cursus et, magna. Praesent interdum ligula eu enim. Etiam',76);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Rugby','nec tellus. Nunc lectus pede, ultrices a, auctor non, feugiat',98);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Archery','Donec vitae erat vel pede blandit congue. In scelerisque scelerisque',27);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('WaterPolo','Maecenas mi felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus.',33);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Fishing','cursus et, magna. Praesent interdum ligula eu enim. Etiam imperdiet',48);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('HighJump','ac sem ut dolor dapibus gravida. Aliquam tincidunt, nunc ac',36);
+INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Bowling','montes, nascetur ridiculus mus. Aenean eget magna. Suspendisse tristique neque',60);
 
 --Creates a workout event for different users and inserts them into tblWORKOUT
 INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(1,6,12,'2014-12-02 12:53:44','2015-07-27 10:07:33','vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque',3764,405);
@@ -331,3 +327,5 @@ INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(10,11);
 INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(4,3);
 INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(10,9);
 INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(5,5);
+
+Select * FROM tblMEAL_ITEM
