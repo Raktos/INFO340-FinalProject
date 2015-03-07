@@ -108,22 +108,21 @@ INSERT INTO tblSLEEP([UserID],[SleepStartTime],[SleepEndTime]) VALUES(15,'2014-0
 INSERT INTO tblSLEEP([UserID],[SleepStartTime],[SleepEndTime]) VALUES(14,'2014-03-06 00:00:00','2014-03-06 08:00:00');
 INSERT INTO tblSLEEP([UserID],[SleepStartTime],[SleepEndTime]) VALUES(6,'2014-03-06 00:00:00','2014-03-06 08:00:00');
 
---Inserts band data for a user who is sleeping
+--Inserts band data for a user who is sleeping into tblSLEEP_BAND_DATA
 INSERT INTO tblSLEEP_BAND_DATA([SleepID],[SleepBandDataTime],[SleepMovementData]) VALUES(8,'2014-03-06 05:00:00',37);
 INSERT INTO tblSLEEP_BAND_DATA([SleepID],[SleepBandDataTime],[SleepMovementData]) VALUES(9,'2014-03-06 06:00:00',3);
 INSERT INTO tblSLEEP_BAND_DATA([SleepID],[SleepBandDataTime],[SleepMovementData]) VALUES(9,'2014-03-06 07:00:00',61);
 INSERT INTO tblSLEEP_BAND_DATA([SleepID],[SleepBandDataTime],[SleepMovementData]) VALUES(8,'2014-03-06 04:00:00',13);
 INSERT INTO tblSLEEP_BAND_DATA([SleepID],[SleepBandDataTime],[SleepMovementData]) VALUES(8,'2014-03-06 03:00:00',60);
 
---Inserts 
+--Inserts new groups into tblGROUP
 INSERT INTO tblGROUP([GroupName],[GroupDesc]) VALUES('Horse Lovers','mollis. Integer tincidunt aliquam arcu. Aliquam ultrices iaculis odio. Nam');
 INSERT INTO tblGROUP([GroupName],[GroupDesc]) VALUES('Frat Stars','tempor, est ac mattis semper, dui lectus rutrum urna, nec');
 INSERT INTO tblGROUP([GroupName],[GroupDesc]) VALUES('Soccer Fanatics','sem elit, pharetra ut, pharetra sed, hendrerit a, arcu. Sed');
 INSERT INTO tblGROUP([GroupName],[GroupDesc]) VALUES('IMA Champions Only','id risus quis diam luctus lobortis. Class aptent taciti sociosqu');
 INSERT INTO tblGROUP([GroupName],[GroupDesc]) VALUES('Ball is Life','Ball So, Ball So, Ball So, Ball So, Ball so Hard Muerrffuhers Wanna Fine Me');
 
---
-
+--Inserts an existing user into an existing group and stores the relationship in tblUSER_GROUP
 INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(9,1);
 INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(12,3);
 INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(10,3);
@@ -140,7 +139,7 @@ INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(12,3);
 INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(6,2);
 INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(11,2);
 
---
+--Inserts a meal eaten into tblMEAL
 INSERT INTO tblMEAL([UserID],[MealDate],[MealComment]) VALUES(1,'2015-01-21 12:07:39','Quisque nonummy ipsum non arcu. Vivamus sit amet risus. Donec');
 INSERT INTO tblMEAL([UserID],[MealDate],[MealComment]) VALUES(2,'2016-01-06 06:12:03','a tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu');
 INSERT INTO tblMEAL([UserID],[MealDate],[MealComment]) VALUES(3,'2015-01-06 10:53:56','Nunc commodo auctor velit. Aliquam nisl. Nulla eu neque pellentesque');
@@ -152,6 +151,7 @@ INSERT INTO tblMEAL([UserID],[MealDate],[MealComment]) VALUES(8,'2015-12-27 15:4
 INSERT INTO tblMEAL([UserID],[MealDate],[MealComment]) VALUES(9,'2014-07-26 04:54:05','aliquet magna a neque. Nullam ut nisi a odio semper');
 INSERT INTO tblMEAL([UserID],[MealDate],[MealComment]) VALUES(10,'2014-07-09 07:42:31','eleifend egestas. Sed pharetra, felis eget varius ultrices, mauris ipsum');
 
+--Creates the 6 food groups that can be used into tblFOOD_GROUP
 INSERT INTO tblFOOD_GROUP([FoodGroupID],[FoodGroupName],[FoodGroupDes]) VALUES(1,'Sweets & Oils,','feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem');
 INSERT INTO tblFOOD_GROUP([FoodGroupID],[FoodGroupName],[FoodGroupDes]) VALUES(2,'Dairy','convallis convallis dolor. Quisque tincidunt pede ac urna. Ut tincidunt');
 INSERT INTO tblFOOD_GROUP([FoodGroupID],[FoodGroupName],[FoodGroupDes]) VALUES(3,'Fruit','Quisque porttitor eros nec tellus. Nunc lectus pede, ultrices a,');
@@ -159,7 +159,7 @@ INSERT INTO tblFOOD_GROUP([FoodGroupID],[FoodGroupName],[FoodGroupDes]) VALUES(4
 INSERT INTO tblFOOD_GROUP([FoodGroupID],[FoodGroupName],[FoodGroupDes]) VALUES(5,'Rice & Grains','eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis');
 INSERT INTO tblFOOD_GROUP([FoodGroupID],[FoodGroupName],[FoodGroupDes]) VALUES(6,'Meat & Beans','Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam erat');
 
-
+--Inserts a meal item which is part of a meal into tblMEAL_ITEM
 INSERT INTO tblMEAL_ITEM([MealID],[FoodGroupID],[MealItemDesc],[MealItemCalories]) VALUES(1,3,'et arcu',179);
 INSERT INTO tblMEAL_ITEM([MealID],[FoodGroupID],[MealItemDesc],[MealItemCalories]) VALUES(2,2,'augue scelerisque',112);
 INSERT INTO tblMEAL_ITEM([MealID],[FoodGroupID],[MealItemDesc],[MealItemCalories]) VALUES(3,1,'viverra. Donec',10);
@@ -181,7 +181,7 @@ INSERT INTO tblMEAL_ITEM([MealID],[FoodGroupID],[MealItemDesc],[MealItemCalories
 INSERT INTO tblMEAL_ITEM([MealID],[FoodGroupID],[MealItemDesc],[MealItemCalories]) VALUES(9,6,'turpis egestas.',160);
 INSERT INTO tblMEAL_ITEM([MealID],[FoodGroupID],[MealItemDesc],[MealItemCalories]) VALUES(10,1,'velit eget',11);
 
-
+--Creates new locations and inserts them into tblLOCATION
 INSERT INTO tblLOCATION([LocationName],[LocationLat],[LocationLong]) VALUES('IMA',104,112);
 INSERT INTO tblLOCATION([LocationName],[LocationLat],[LocationLong]) VALUES('FlagPole',128,91);
 INSERT INTO tblLOCATION([LocationName],[LocationLat],[LocationLong]) VALUES('IMA Tennis Court',103,106);
@@ -192,8 +192,6 @@ INSERT INTO tblLOCATION([LocationName],[LocationLat],[LocationLong]) VALUES('24 
 INSERT INTO tblLOCATION([LocationName],[LocationLat],[LocationLong]) VALUES('Green Lake',121,98);
 INSERT INTO tblLOCATION([LocationName],[LocationLat],[LocationLong]) VALUES('IMA Track',111,90);
 INSERT INTO tblLOCATION([LocationName],[LocationLat],[LocationLong]) VALUES('Archery Field',90,93);
-
-
 
 --Inserts different workout types and their description into tblWORKOUT_TYPE
 INSERT INTO tblWORKOUT_TYPE([WorkoutTypeID],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Soccer','Praesent interdum ligula eu enim. Etiam imperdiet dictum magna. Ut',42);
@@ -284,7 +282,7 @@ INSERT INTO tblBADGES([BadgeName],[BadgeDesc]) VALUES('Amatuer','pede sagittis a
 INSERT INTO tblBADGES([BadgeName],[BadgeDesc]) VALUES('Rookie','mattis velit justo nec ante. Maecenas mi felis, adipiscing fringilla,');
 
 
---Inserts the associative entities between workout types and badges
+--Inserts the associative entities between workout types and badges into tblWORKOUT_TYPE_BADGES
 INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(179);
 INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(129);
 INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(198);
@@ -306,6 +304,7 @@ INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(138);
 INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(137);
 INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(116);
 
+--Creates a planned activity and inserts it into tblPLANNED_ACTIVITY
 INSERT INTO tblPLANNED_ACTIVITY([UserID],[LocationID],[IsGroup],[ActivityName],[ActivityStartDate],[ActivityEndDate]) VALUES(6,7,0,'Etiam','2014-03-06 00:00:00','2014-03-06 00:00:00');
 INSERT INTO tblPLANNED_ACTIVITY([UserID],[LocationID],[IsGroup],[ActivityName],[ActivityStartDate],[ActivityEndDate]) VALUES(4,6,1,'est.','2014-03-06 00:00:00','2014-03-06 00:00:00');
 INSERT INTO tblPLANNED_ACTIVITY([UserID],[LocationID],[IsGroup],[ActivityName],[ActivityStartDate],[ActivityEndDate]) VALUES(8,4,1,'interdum','2014-03-06 00:00:00','2014-03-06 00:00:00');
@@ -317,6 +316,7 @@ INSERT INTO tblPLANNED_ACTIVITY([UserID],[LocationID],[IsGroup],[ActivityName],[
 INSERT INTO tblPLANNED_ACTIVITY([UserID],[LocationID],[IsGroup],[ActivityName],[ActivityStartDate],[ActivityEndDate]) VALUES(14,4,1,'magnis','2014-03-06 00:00:00','2014-03-06 00:00:00');
 INSERT INTO tblPLANNED_ACTIVITY([UserID],[LocationID],[IsGroup],[ActivityName],[ActivityStartDate],[ActivityEndDate]) VALUES(11,1,0,'eget','2014-03-06 00:00:00','2014-03-06 00:00:00');
 
+--Creates an associative entity for the type associated with groups into tblGROUP_WORKOUT_TYPE
 INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(7,12);
 INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(6,17);
 INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(3,11);
@@ -327,13 +327,7 @@ INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(8,5);
 INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(6,16);
 INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(10,11);
 
+--Associates an exisiting activity with an exisiting group and inserts it into tblGROUP_ACTIVITY
 INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(4,3);
-INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(10,12);
+INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(10,9);
 INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(5,5);
-INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(8,5);
-INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(2,18);
-INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(9,16);
-INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(6,16);
-INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(4,7);
-INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(1,9);
-INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(9,12);
