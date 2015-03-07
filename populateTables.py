@@ -15,7 +15,9 @@ while True:
         print('need an int.')
         continue
     else:
-        break
+        if n > 0:
+            break
+        print('bigger than 0 please.')
 
 # load db authentication into an object
 db = json.loads(open('db.json').read())
