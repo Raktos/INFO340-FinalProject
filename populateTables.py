@@ -6,15 +6,25 @@ import generate
 import insert
 import datetime
 
-# prepare to start
-print(str(datetime.datetime.now()) + " | " + "starting...")
+# get input
+n = 0
+while True:
+    try:
+        n = int(input('How many users? '))
+    except ValueError:
+        print('need an int.')
+        continue
+    else:
+        break
 
 # load db authentication into an object
 db = json.loads(open('db.json').read())
 
 # connect to db
-conn = _mssql.connect(server=db['server'], user=db['user'], password=db['pass'],
-    database=db['db'])
+conn = _mssql.connect(server=db['server'], user=db['user'], password=db['pass'], database=db['db'])
+
+# prepare to start
+print(str(datetime.datetime.now()) + " | " + "starting...")
 
 # load text files
 names = open('autogen/names.txt').read().splitlines()
@@ -32,49 +42,70 @@ adjectives = open('autogen/adjectives.txt').read().splitlines()
 adverbs = open('autogen/adverbs.txt').read().splitlines()
 
 # Generate stuff
-gen_users = generate.users(names, domains, 1950, 2002, 100)
-gen_groups = generate.groups(workouts, nouns, quotes, 10)
+gen_users = generate.users(names, domains, 1950, 2002, n)
+gen_groups = generate.groups(workouts, nouns, quotes, int(n / 10))
 
 # Populate tables
 insert.insert_users(conn, gen_users)
 print(str(datetime.datetime.now()) + " | " + "users finished...")
-insert.insert_user_biometrics(conn, 200)
+
+insert.insert_user_biometrics(conn, 2 * n)
 print(str(datetime.datetime.now()) + " | " + "biometrics finished...")
-insert.insert_messages(conn, quotes, 100)
+
+insert.insert_messages(conn, quotes, n)
 print(str(datetime.datetime.now()) + " | " + "messages finished...")
-insert.insert_friends(conn, 200)
+
+insert.insert_friends(conn, 4 * n)
 print(str(datetime.datetime.now()) + " | " + "friends finished...")
-insert.insert_sleep(conn, 2010, 2014, sleep_comments, 100)
+
+insert.insert_sleep(conn, 2010, 2014, sleep_comments, 4 * n)
 print(str(datetime.datetime.now()) + " | " + "sleep finished...")
-insert.insert_sleep_band(conn, 50)
+
+insert.insert_sleep_band(conn, int(n / 10))
 print(str(datetime.datetime.now()) + " | " + "sleep Band finished...")
+
 insert.insert_group(conn, gen_groups)
 print(str(datetime.datetime.now()) + " | " + "groups finished...")
-insert.insert_user_group(conn, 200)
+
+insert.insert_user_group(conn, 2 * n)
 print(str(datetime.datetime.now()) + " | " + "user groups finished...")
-insert.insert_meal(conn, food_comments, 200)
+
+insert.insert_meal(conn, food_comments, 4 * n)
 print(str(datetime.datetime.now()) + " | " + "meals finished...")
+
 insert.insert_food_groups(conn, food_groups, food_comments)
 print(str(datetime.datetime.now()) + " | " + "food groups finished...")
-insert.insert_meal_item(conn, food, 500)
+
+insert.insert_meal_item(conn, food, 8 * n)
 print(str(datetime.datetime.now()) + " | " + "meal items finished...")
-insert.insert_location(conn, names, locationTypes, workouts, 10)
+
+insert.insert_location(conn, names, locationTypes, workouts, int(n / 10))
 print(str(datetime.datetime.now()) + " | " + "locations finished...")
+
 insert.insert_workout_type(conn, workouts, quotes)
 print(str(datetime.datetime.now()) + " | " + "workout types finished...")
-insert.insert_workout(conn, 2010, 2014, workout_comments, 400)
+
+insert.insert_workout(conn, 2010, 2014, workout_comments, 4 * n)
 print(str(datetime.datetime.now()) + " | " + "workouts finished...")
-insert.insert_workout_band(conn, 200)
+
+insert.insert_workout_band(conn, int(n / 2))
 print(str(datetime.datetime.now()) + " | " + "workout bands finished...")
-insert.insert_badge(conn, adverbs, adjectives, workout_comments, 10)
+
+insert.insert_badge(conn, adverbs, adjectives, workout_comments, int(n / 10))
 print(str(datetime.datetime.now()) + " | " + "badges finished...")
-insert.insert_workout_type_badge(conn, 50)
+
+insert.insert_workout_type_badge(conn, int(n / 5))
 print(str(datetime.datetime.now()) + " | " + "workout type badge associations finished...")
-insert.insert_planned_activity(conn, 2010, 2014, adjectives, workouts, workout_comments, 500)
+
+insert.insert_planned_activity(conn, 2010, 2014, adjectives, workouts, workout_comments, 4 * n)
 print(str(datetime.datetime.now()) + " | " + "planned activities finished...")
-insert.insert_group_workout_type(conn, 50)
+
+insert.insert_group_workout_type(conn, int(n / 5))
 print(str(datetime.datetime.now()) + " | " + "group workout type associations finished...")
-insert.insert_group_activity(conn, 50)
+
+insert.insert_group_activity(conn, int(n / 5))
 print(str(datetime.datetime.now()) + " | " + "group activity associations finished...")
 
 print(str(datetime.datetime.now()) + " | " + "all finished!")
+
+input("Press Enter to exit.")
