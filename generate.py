@@ -28,7 +28,7 @@ def users(names, domains, start_year, end_year, n):
         salt = random.randint(1, 500)
 
         # generate a random birthdate between start and end
-        dob = datetime.date(gen_datetime(start_year, end_year))
+        dob = gen_datetime(start_year, end_year)
 
         # append new user as a dictionary
         gen_users.append({

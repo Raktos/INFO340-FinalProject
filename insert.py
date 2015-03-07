@@ -110,7 +110,7 @@ def insert_user_biometrics(conn, n):
     for i in range(0, n):
         user = userids[random.randint(1, len(userids) - 1)]
 
-        entry_date = datetime.date(generate.gen_datetime(2010, 2014))
+        entry_date = generate.gen_datetime(2010, 2014)
 
         weight = random.uniform(80, 350)
         height = random.uniform(48, 84)
