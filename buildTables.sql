@@ -97,7 +97,7 @@ CREATE TABLE tblLOCATION(
 
 CREATE TABLE tblWORKOUT_TYPE(
 	WorkoutTypeID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	WorkoutTypeName varchar(60),
+	WorkoutTypeName varchar(60) NOT NULL,
 	WorkoutTypeDesc varchar(250),
 	WorkoutBasePts int NOT NULL
 );
