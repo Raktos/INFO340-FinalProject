@@ -1,0 +1,6 @@
+gym
+field
+park
+trail
+hike
+club

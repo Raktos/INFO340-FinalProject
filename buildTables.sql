@@ -31,7 +31,7 @@ CREATE TABLE tblMESSAGE(
 	MessageRecipietUserID int FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL,
 	MessageSenderUserID int FOREIGN KEY REFERENCES tblUSER(UserID) NOT NULL,
 	MessageTimestamp timestamp NOT NULL,
-	MessageContent varchar(250) NOT NULL
+	MessageContent varchar(5000) NOT NULL
 );
 
 CREATE TABLE tblUSER_FRIEND(
@@ -58,7 +58,7 @@ CREATE TABLE tblSLEEP_BAND_DATA(
 CREATE TABLE tblGROUP(
 	GroupID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	GroupName varchar(60) NOT NULL,
-	GroupDesc varchar(250)
+	GroupDesc varchar(5000)
 );
 
 CREATE TABLE tblUSER_GROUPS(
@@ -98,7 +98,7 @@ CREATE TABLE tblLOCATION(
 CREATE TABLE tblWORKOUT_TYPE(
 	WorkoutTypeID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	WorkoutTypeName varchar(60) NOT NULL,
-	WorkoutTypeDesc varchar(250),
+	WorkoutTypeDesc varchar(2000),
 	WorkoutBasePts int NOT NULL
 );
 
@@ -117,6 +117,7 @@ CREATE TABLE tblWORKOUT(
 CREATE TABLE tblWORKOUT_BAND_DATA(
 	WorkoutBandDataID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	WorkoutID int FOREIGN KEY REFERENCES tblWORKOUT(WorkoutID) NOT NULL,
+  WorkoutBandDataTime datetime NOT NULL,
 	WorkoutHeartRate int
 );
 
