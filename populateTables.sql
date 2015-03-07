@@ -212,26 +212,26 @@ INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]
 INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('Bowling','montes, nascetur ridiculus mus. Aenean eget magna. Suspendisse tristique neque',60);
 
 --Creates a workout event for different users and inserts them into tblWORKOUT
-INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(1,6,12,'2014-12-02 12:53:44','2015-07-27 10:07:33','vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque',3764,405);
+INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(1,6,6,'2014-12-02 12:53:44','2015-07-27 10:07:33','vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque',3764,405);
 INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(2,13,5,'2015-03-12 22:26:56','2015-06-19 20:08:25','Quisque varius. Nam porttitor scelerisque neque. Nullam nisl. Maecenas malesuada',4315,496);
 INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(3,5,1,'2014-12-18 09:01:24','2014-07-14 08:52:32','congue a, aliquet vel, vulputate eu, odio. Phasellus at augue',4516,239);
-INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(4,14,14,'2015-09-26 09:00:52','2015-10-30 03:26:24','feugiat placerat velit. Quisque varius. Nam porttitor scelerisque neque. Nullam',4220,286);
+INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(4,14,7,'2015-09-26 09:00:52','2015-10-30 03:26:24','feugiat placerat velit. Quisque varius. Nam porttitor scelerisque neque. Nullam',4220,286);
 INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(5,5,5,'2015-08-07 15:37:31','2014-06-13 21:51:33','Phasellus elit pede, malesuada vel, venenatis vel, faucibus id, libero.',3536,375);
-INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(6,11,12,'2014-08-20 12:04:40','2014-05-08 05:29:31','est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh lacinia',4390,257);
-INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(7,11,14,'2014-12-17 07:11:55','2016-01-15 22:43:15','ad litora torquent per conubia nostra, per inceptos hymenaeos. Mauris',4871,440);
-INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(8,4,11,'2015-10-03 12:38:23','2015-06-30 12:13:45','ac, fermentum vel, mauris. Integer sem elit, pharetra ut, pharetra',3653,276);
+INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(6,11,9,'2014-08-20 12:04:40','2014-05-08 05:29:31','est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh lacinia',4390,257);
+INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(7,11,9,'2014-12-17 07:11:55','2016-01-15 22:43:15','ad litora torquent per conubia nostra, per inceptos hymenaeos. Mauris',4871,440);
+INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(8,4,10,'2015-10-03 12:38:23','2015-06-30 12:13:45','ac, fermentum vel, mauris. Integer sem elit, pharetra ut, pharetra',3653,276);
 INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(9,12,2,'2015-12-05 07:38:39','2015-01-07 14:45:02','diam dictum sapien. Aenean massa. Integer vitae nibh. Donec est',4347,381);
 INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(10,13,5,'2015-07-07 19:20:12','2015-12-27 22:19:21','ac mi eleifend egestas. Sed pharetra, felis eget varius ultrices,',4970,289);
 INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(11,11,4,'2014-10-31 06:57:28','2015-06-25 07:48:26','dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer',3474,465);
-INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(12,4,15,'2015-09-29 11:09:23','2014-03-08 18:59:06','Fusce mi lorem, vehicula et, rutrum eu, ultrices sit amet,',4132,369);
+INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(12,4,1,'2015-09-29 11:09:23','2014-03-08 18:59:06','Fusce mi lorem, vehicula et, rutrum eu, ultrices sit amet,',4132,369);
 INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(13,7,1,'2015-10-05 03:07:24','2016-01-04 06:20:58','Suspendisse tristique neque venenatis lacus. Etiam bibendum fermentum metus. Aenean',3548,389);
 INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(14,1,2,'2014-05-16 05:41:19','2014-11-20 09:20:28','lorem ipsum sodales purus, in molestie tortor nibh sit amet',4021,351);
-INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(15,11,9,'2015-06-16 04:05:08','2015-02-11 21:35:12','amet ante. Vivamus non lorem vitae odio sagittis semper. Nam',4321,378);
-INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(16,5,10,'2014-09-11 14:02:32','2015-04-20 16:39:19','viverra. Maecenas iaculis aliquet diam. Sed diam lorem, auctor quis,',3141,359);
-INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(17,9,11,'2014-07-28 12:02:15','2014-12-01 03:07:36','gravida molestie arcu. Sed eu nibh vulputate mauris sagittis placerat.',3131,223);
-INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(18,14,5,'2014-09-15 08:28:51','2014-06-21 19:37:24','lorem tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus aliquet',4813,486);
-INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(19,8,4,'2014-11-25 05:55:36','2014-08-03 18:15:44','enim non nisi. Aenean eget metus. In nec orci. Donec',4841,445);
-INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(20,9,14,'2014-07-05 03:48:24','2015-12-25 02:55:59','adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis',3762,412);
+INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(13,11,9,'2015-06-16 04:05:08','2015-02-11 21:35:12','amet ante. Vivamus non lorem vitae odio sagittis semper. Nam',4321,378);
+INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(13,5,10,'2014-09-11 14:02:32','2015-04-20 16:39:19','viverra. Maecenas iaculis aliquet diam. Sed diam lorem, auctor quis,',3141,359);
+INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(12,9,6,'2014-07-28 12:02:15','2014-12-01 03:07:36','gravida molestie arcu. Sed eu nibh vulputate mauris sagittis placerat.',3131,223);
+INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(6,14,5,'2014-09-15 08:28:51','2014-06-21 19:37:24','lorem tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus aliquet',4813,486);
+INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(9,8,4,'2014-11-25 05:55:36','2014-08-03 18:15:44','enim non nisi. Aenean eget metus. In nec orci. Donec',4841,445);
+INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(2,9,8,'2014-07-05 03:48:24','2015-12-25 02:55:59','adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis',3762,412);
 
 --Creates workout band data and inserts it into tblWORKOUT_BAND_DATA
 INSERT INTO tblWORKOUT_BAND_DATA([WorkoutID],[WorkoutHeartRate]) VALUES(15,112);
@@ -279,26 +279,16 @@ INSERT INTO tblBADGES([BadgeName],[BadgeDesc]) VALUES('Rookie','mattis velit jus
 
 
 --Inserts the associative entities between workout types and badges into tblWORKOUT_TYPE_BADGES
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(179);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(129);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(198);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(184);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(185);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(178);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(161);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(176);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(170);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(105);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(123);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(138);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(186);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(107);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(125);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(112);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(188);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(138);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(137);
-INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutPtsReq]) VALUES(116);
+INSERT INTO tblWORKOUT_TYPE_BADGES([BadgeID],[WorkoutTypeID],[WorkoutPtsReq]) VALUES(5,8,1501);
+INSERT INTO tblWORKOUT_TYPE_BADGES([BadgeID],[WorkoutTypeID],[WorkoutPtsReq]) VALUES(20,10,1420);
+INSERT INTO tblWORKOUT_TYPE_BADGES([BadgeID],[WorkoutTypeID],[WorkoutPtsReq]) VALUES(20,12,1344);
+INSERT INTO tblWORKOUT_TYPE_BADGES([BadgeID],[WorkoutTypeID],[WorkoutPtsReq]) VALUES(9,5,1601);
+INSERT INTO tblWORKOUT_TYPE_BADGES([BadgeID],[WorkoutTypeID],[WorkoutPtsReq]) VALUES(9,15,1680);
+INSERT INTO tblWORKOUT_TYPE_BADGES([BadgeID],[WorkoutTypeID],[WorkoutPtsReq]) VALUES(5,12,1273);
+INSERT INTO tblWORKOUT_TYPE_BADGES([BadgeID],[WorkoutTypeID],[WorkoutPtsReq]) VALUES(4,3,1370);
+INSERT INTO tblWORKOUT_TYPE_BADGES([BadgeID],[WorkoutTypeID],[WorkoutPtsReq]) VALUES(2,12,1876);
+INSERT INTO tblWORKOUT_TYPE_BADGES([BadgeID],[WorkoutTypeID],[WorkoutPtsReq]) VALUES(20,8,1430);
+INSERT INTO tblWORKOUT_TYPE_BADGES([BadgeID],[WorkoutTypeID],[WorkoutPtsReq]) VALUES(17,8,1902);
 
 --Creates a planned activity and inserts it into tblPLANNED_ACTIVITY
 INSERT INTO tblPLANNED_ACTIVITY([UserID],[LocationID],[IsGroup],[ActivityName],[ActivityStartDate],[ActivityEndDate]) VALUES(6,7,0,'Etiam','2014-03-06 00:00:00','2014-03-06 00:00:00');
@@ -314,13 +304,13 @@ INSERT INTO tblPLANNED_ACTIVITY([UserID],[LocationID],[IsGroup],[ActivityName],[
 
 --Creates an associative entity for the type associated with groups into tblGROUP_WORKOUT_TYPE
 INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(7,12);
-INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(6,17);
+INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(6,14);
 INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(3,11);
 INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(6,4);
-INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(7,20);
+INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(7,6);
 INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(9,14);
 INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(8,5);
-INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(6,16);
+INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(6,1);
 INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(10,11);
 
 --Associates an exisiting activity with an exisiting group and inserts it into tblGROUP_ACTIVITY
