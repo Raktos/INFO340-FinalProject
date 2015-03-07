@@ -121,7 +121,7 @@ def insert_user_biometrics(conn, n):
 
 # inserts n messages from a list of messages
 def insert_messages(conn, messages, n):
-    userids = get_users()
+    userids = get_users(conn)
 
     for i in range(0,n):
         message = messages[random.randint(0, len(messages) - 1)].strip()
@@ -142,7 +142,7 @@ def insert_friends(conn, n):
     for row in conn:
         friend_sets[str(row['UserID1'])] = row['UserID2']
 
-    userids = get_users()
+    userids = get_users(conn)
 
     for i in range(0, n):
         user1 = userids[random.randint(1, len(userids) - 1)]
