@@ -6,24 +6,25 @@ import generate
 import insert
 import datetime
 
-# get input
-n = 0
-while True:
-    try:
-        n = int(input('How many users? '))
-    except ValueError:
-        print('need an int.')
-        continue
-    else:
-        if n > 0:
-            break
-        print('bigger than 0 please.')
-
 # load db authentication into an object
 db = json.loads(open('db.json').read())
 
 # connect to db
 conn = _mssql.connect(server=db['server'], user=db['user'], password=db['pass'], database=db['db'])
+print(str(datetime.datetime.now()) + " | " + "connected to database...")
+
+# get input
+n = 0
+while True:
+    try:
+        n = int(input(str(datetime.datetime.now()) + " | " + 'How many users? '))
+    except ValueError:
+        print(str(datetime.datetime.now()) + " | " + 'need an int.')
+        continue
+    else:
+        if n > 0:
+            break
+        print(str(datetime.datetime.now()) + " | " + 'bigger than 0 please.')
 
 # prepare to start
 print(str(datetime.datetime.now()) + " | " + "starting...")
@@ -46,6 +47,7 @@ adverbs = open('autogen/adverbs.txt').read().splitlines()
 # Generate stuff
 gen_users = generate.users(names, domains, 1950, 2002, n)
 gen_groups = generate.groups(workouts, nouns, quotes, int(n / 10))
+print(str(datetime.datetime.now()) + " | " + "generation finished...")
 
 # Populate tables
 insert.insert_users(conn, gen_users)
