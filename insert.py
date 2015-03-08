@@ -140,7 +140,7 @@ def insert_friends(conn, n):
     conn.execute_query("SELECT * FROM tblUSER_FRIEND")
     friend_sets = {}
     for row in conn:
-        friend_sets[str(row['UserID1'])] = row['UserID2']
+        friend_sets[str(row['UserID1'])].append(row['UserID2'])
 
     userids = get_users(conn)
 
@@ -148,10 +148,16 @@ def insert_friends(conn, n):
         user1 = userids[random.randint(1, len(userids) - 1)]
         user2 = userids[random.randint(1, len(userids) - 1)]
 
+        if friend_sets.get(str(user1)) is None:
+            friend_sets[str(user1)] = []
+
+        if friend_sets.get(str(user2)) is None:
+            friend_sets[str(user2)] = []
+
         # only insert friend connection if it does not already exist
-        if not ((friend_sets.get(str(user1)) == user2 or friend_sets.get(str(user2)) == user1)):
-            friend_sets[str(user1)] = user2
-            query = "INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(%s,%s);" % (user1, user2)
+        if not ((user2 in friend_sets[str(user1)]) or (user1 in friend_sets[str(user2)])):
+            friend_sets[str(user1)].append(user2)
+            query = "INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(%d,%d);" % (user1, user2)
             conn.execute_non_query(query)
 
 
