@@ -140,6 +140,8 @@ def insert_friends(conn, n):
     conn.execute_query("SELECT * FROM tblUSER_FRIEND")
     friend_sets = {}
     for row in conn:
+        if friend_sets.get(str(row['UserID1'])) is None:
+            friend_sets[str(row['UserID1'])] = []
         friend_sets[str(row['UserID1'])].append(row['UserID2'])
 
     userids = get_users(conn)
