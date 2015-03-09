@@ -98,7 +98,7 @@ print(str(datetime.datetime.now()) + " | " + "workout bands finished...")
 insert.insert_badge(conn, adverbs, adjectives, workout_comments, int(n / 10))
 print(str(datetime.datetime.now()) + " | " + "badges finished...")
 
-insert.insert_workout_type_badge(conn, int(n / 5))
+insert.insert_workout_type_badge(conn, int(n / 10))
 print(str(datetime.datetime.now()) + " | " + "workout type badge associations finished...")
 
 insert.insert_planned_activity(conn, 2010, 2014, adjectives, workouts, workout_comments, 4 * n)
