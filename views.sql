@@ -13,7 +13,7 @@ SELECT TOP 100 b.BadgeName, b.BadgeDesc, SUM(wtb.WorkoutPtsReq) AS PointsRequire
 FROM tblWORKOUT_TYPE_BADGES wtb
 	JOIN tblBADGES b
 		ON b.BadgeID = wtb.BadgeID
-GROUP BY b.BadgeName, b.BadgeDesc
+GROUP BY b.BadgeID, b.BadgeName, b.BadgeDesc
 ORDER BY PointsRequired DESC
 GO
 SELECT * FROM vwDifficultBadges
