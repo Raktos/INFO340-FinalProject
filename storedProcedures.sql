@@ -12,9 +12,9 @@ USE WORKOUT_FACEBOOK;
 --In Progress
  GO
  CREATE PROCEDURE uspUpdateUserHeightWeight
-	@UserID int NOT NULL
-	@Date date NOT NULL
-	@Height decimal(5,2)
+	@UserID int,
+	@Date date,
+	@Height decimal(5,2),
 	@Weight decimal(5,2)
 AS
 INSERT INTO tblUSER_HEIGHT_WEIGHT(UserID, HWDate, UserHeight, UserWeight)
