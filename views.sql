@@ -8,13 +8,14 @@ USE WORKOUT_FACEBOOK;
 --DROP VIEW vwDifficultBadges
 CREATE VIEW vwDifficultBadges
 AS
-SELECT TOP 100 b.BadgeName, SUM(wtb.WorkoutPtsReq) AS PointsRequired
+SELECT TOP 100 b.BadgeName, b.BadgeDesc, SUM(wtb.WorkoutPtsReq) AS PointsRequired
 FROM tblWORKOUT_TYPE_BADGES wtb
 	JOIN tblBADGES b
 		ON b.BadgeID = wtb.BadgeID
-GROUP BY b.BadgeName
+GROUP BY b.BadgeName, b.BadgeDesc
 ORDER BY PointsRequired DESC
 GO
+SELECT * FROM vwDifficultBadges
 
 --Display all activities that have occured already today
 --DROP VIEW vwTodaysActivities
