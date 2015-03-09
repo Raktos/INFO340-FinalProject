@@ -4,7 +4,8 @@
 */
 USE WORKOUT_FACEBOOK;
 
---Display all badges for a given User id
+--Display the top 100 badges sorted by the most total points required to earn each badge
+--In this regard, the badges are ordered by difficulty with the harder badges requiring more points
 --DROP VIEW vwDifficultBadges
 CREATE VIEW vwDifficultBadges
 AS
