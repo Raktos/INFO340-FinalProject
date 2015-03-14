@@ -98,4 +98,42 @@ DROP PROCEDURE dbo.uspActivityUpdate
 
 EXEC dbo.uspActivityUpdate 5003,1900,600,'UPDATED','2013-03-06 11:11:11.000','2014-03-06 11:11:11.000','UPDATED DESCRIPTION';
 
---Create Stored Procedure to Insert new Group Activity
+
+--Stored Procedure: Insert New User Workout
+
+CREATE PROCEDURE uspInsertWorkout(
+	@UserID int,
+	@WorkoutTypeID int,
+	@LocationID int,
+	@WorkoutStartTime datetime,
+	@WorkoutEndTime datetime,
+	@WorkoutComment varchar(250),
+	@WorkoutBandSteps int,
+	@WorkoutCaloriesBurned int
+)
+AS
+BEGIN TRAN WorkoutInsert;
+INSERT INTO tblWORKOUT(
+	[UserID],
+	[WorkoutTypeID],
+	[LocationID],
+	[WorkoutStartTime],
+	[WorkoutEndTime],
+	[WorkoutComment],
+	[WorkoutBandSteps],
+	[WorkoutCaloriesBurned]
+)VALUES(
+	@UserID,
+	@WorkoutTypeID,
+	@LocationID,
+	@WorkoutStartTime,
+	@WorkoutEndTime,
+	@WorkoutComment,
+	@WorkoutBandSteps,
+	@WorkoutCaloriesBurned
+);
+COMMIT TRAN WorkoutInsert;
+GO
+
+DROP PROCEDURE dbo.uspInsertWorkout;
+EXEC dbo.uspInsertWorkout 54033,71,792,'2013-03-10 11:11:11.000','2014-03-10 11:11:11.000','UPDATED BEST WORKOUT EVER', 1000,500;
