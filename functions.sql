@@ -91,6 +91,7 @@ GO
 --SELECT dbo.UserWeightNetChange(1780);
 
 
+
 --Function: Most popular workout location for a given day (IN PROGRESS)
 CREATE FUNCTION PopularWorkoutLocation(@Date date) 
 RETURNS varchar(60)
