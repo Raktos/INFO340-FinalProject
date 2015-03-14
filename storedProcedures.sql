@@ -72,7 +72,7 @@ SELECT * FROM tblUSER;
 
 
 --Stored Procedure: update user activity 
-CREATE PROCEDURE activityUpdate
+CREATE PROCEDURE uspActivityUpdate
 	@ActivityID int,
 	@UserID int,
 	@LocationID int,
@@ -94,8 +94,8 @@ WHERE ActivityID = @ActivityID
 COMMIT TRAN updateActivity;
 GO
 
-DROP PROCEDURE dbo.activityUpdate
+DROP PROCEDURE dbo.uspActivityUpdate
 
-EXEC dbo.activityUpdate 5003,1900,600,'UPDATED','2013-03-06 11:11:11.000','2014-03-06 11:11:11.000','UPDATED DESCRIPTION';
+EXEC dbo.uspActivityUpdate 5003,1900,600,'UPDATED','2013-03-06 11:11:11.000','2014-03-06 11:11:11.000','UPDATED DESCRIPTION';
 
 --Create Stored Procedure to Insert new Group Activity
