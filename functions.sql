@@ -28,7 +28,9 @@ BEGIN
 END
 GO
 
-SELECT dbo.AverageSleepMovement(1780);
+--SELECT dbo.AverageSleepMovement(1780);
+
+
 
 --Average Calories per Meal for User
 CREATE FUNCTION AverageCaloriesPerMeal(@UserID int)
@@ -56,19 +58,11 @@ BEGIN
 END
 GO
 
-SELECT dbo.AverageCaloriesPerMeal(1511);
+--SELECT dbo.AverageCaloriesPerMeal(1511);
 
 
 
 --Net change in weight for a user
-
-Use WORKOUT_FACEBOOK;
-SELECT *
-FROM tblUSER_HEIGHT_WEIGHT uhw
-WHERE UserID = 1780
-ORDER BY uhw.HWDate ASC;
-
-
 CREATE FUNCTION UserWeightNetChange(@UserID int) 
 RETURNS decimal
 AS
@@ -93,25 +87,28 @@ BEGIN
 END;
 GO
 
-DROP FUNCTION dbo.UserWeightNetChange;
-
-SELECT dbo.UserWeightNetChange(1780);
-
+--DROP FUNCTION dbo.UserWeightNetChange;
+--SELECT dbo.UserWeightNetChange(1780);
 
 
 --Function: Most popular workout location for a given day (IN PROGRESS)
-SELECT *
-FROM tblLOCATION l;
-
-SELECT * 
-FROM tblWORKOUT w
-WHERE CAST(WorkoutStartTime AS date) = '2014-11-10';
-
 CREATE FUNCTION PopularWorkoutLocation(@Date date) 
-RETURNS varchar
+RETURNS varchar(60)
 AS
 BEGIN	
-	DECLARE @Location varchar
+	DECLARE @LocationName varchar(60)
 
+	SELECT TOP 1 @LocationName = l.LocationName
+	FROM tblWORKOUT w
+		JOIN tblLOCATION l
+			ON w.LocationID = l.LocationID
+	WHERE CAST(WorkoutStartTime AS date) = @Date
+	GROUP BY w.LocationID, l.LocationName
+	ORDER BY COUNT(w.LocationID) DESC
+
+	RETURN @LocationName;
 END;
 GO
+
+--DROP FUNCTION dbo.PopularWorkoutLocation;
+--SELECT dbo.PopularWorkoutLocation('2013-11-10');
