@@ -70,4 +70,32 @@ GO
 EXEC dbo.uspInsertUser 'John','Holt',0,'3-15-1987','email@email.com','878954',100,150.54,66.57;
 SELECT * FROM tblUSER;
 
+
+--Stored Procedure: update user activity 
+CREATE PROCEDURE activityUpdate
+	@ActivityID int,
+	@UserID int,
+	@LocationID int,
+	@ActivityName varchar(60),
+	@ActivityStartDate datetime,
+	@ActivityEndDate datetime,
+	@ActivityDesc varchar(250)
+AS
+BEGIN TRAN updateActivity;
+UPDATE tblPLANNED_ACTIVITY
+	SET UserID = @UserID, 
+	LocationID = @LocationID,
+	ActivityName = @ActivityName,
+	ActivityStartDate = @ActivityStartDate,
+	ActivityEndDate = @ActivityEndDate,
+	ActivityDesc = @ActivityDesc
+WHERE ActivityID = @ActivityID
+
+COMMIT TRAN updateActivity;
+GO
+
+DROP PROCEDURE dbo.activityUpdate
+
+EXEC dbo.activityUpdate 5003,1900,600,'UPDATED','2013-03-06 11:11:11.000','2014-03-06 11:11:11.000','UPDATED DESCRIPTION';
+
 --Create Stored Procedure to Insert new Group Activity
