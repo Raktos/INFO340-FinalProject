@@ -22,18 +22,16 @@ SELECT * FROM vwDifficultBadges
 --DROP VIEW vwTodaysActivities
 CREATE VIEW vwTodaysActivities
 AS
-SELECT w.WorkoutID, u.UserFName, u.UserLName, l.LocationName, wt.WorkoutTypeName, 
-	   w.WorkoutComment, w.WorkoutCaloriesBurned, w.WorkoutBandSteps
-FROM tblWORKOUT w
+SELECT pa.ActivityID, u.UserFName, u.UserLName, l.LocationName,
+	   pa.ActivityDesc, pa.ActivityStartDate
+FROM tblPLANNED_ACTIVITY pa
 	JOIN tblLOCATION l
-		ON l.LocationID = w.LocationID
+		ON l.LocationID = pa.LocationID
 	JOIN tblUSER u 
-		ON u.UserID = w.UserID
-	JOIN tblWORKOUT_TYPE wt
-		ON wt.WorkoutTypeID = w.WorkoutTypeID
-WHERE (DATEPART(year, GETDATE()) = DATEPART(year, w.WorkoutStartTime))
-AND (DATEPART(month, GETDATE()) = DATEPART(month, w.WorkoutStartTime))
-AND (DATEPART(day, GETDATE()) = DATEPART(day, w.WorkoutStartTime))
+		ON u.UserID = pa.UserID
+WHERE (DATEPART(year, GETDATE()) = DATEPART(year, pa.ActivityStartDate))
+AND (DATEPART(month, GETDATE()) = DATEPART(month, pa.ActivityStartDate))
+AND (DATEPART(day, GETDATE()) = DATEPART(day, pa.ActivityStartDate))
 GO
 SELECT * FROM vwTodaysActivities
 
@@ -51,3 +49,5 @@ ORDER BY Calories DESC
 GO
 
 SELECT * FROM vwHighestCalorieMeals
+
+--Displays 
