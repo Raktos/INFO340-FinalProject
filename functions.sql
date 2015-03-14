@@ -12,7 +12,7 @@ RETURNS decimal
 AS
 BEGIN
 	DECLARE @Ave decimal;
-	SELECT @Ave = AVG(CAST(sbd.SleepMovementData AS decimal))
+	SELECT @Ave = AVG(CONVERT(decimal(8,4), sbd.SleepMovementData))
 	FROM tblSLEEP_BAND_DATA sbd
 		JOIN tblSLEEP s
 			ON s.SleepID = sbd.SleepID

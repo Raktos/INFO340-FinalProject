@@ -37,3 +37,17 @@ AND (DATEPART(day, GETDATE()) = DATEPART(day, w.WorkoutStartTime))
 GO
 SELECT * FROM vwTodaysActivities
 
+--Displays the highest calorie meals currently in the database
+CREATE VIEW vwHighestCalorieMeals
+AS
+SELECT u.UserFName, u.UserLName, m.MealID, SUM(mi.MealItemCalories) AS Calories
+FROM tblMEAL m
+	JOIN tblMEAL_ITEM mi
+		ON mi.MealID = m.MealID
+	JOIN tblUSER u
+		ON u.UserID = m.UserID
+GROUP BY m.MealID, u.UserFName, u.UserLName
+ORDER BY Calories DESC
+GO
+
+SELECT * FROM vwHighestCalorieMeals
