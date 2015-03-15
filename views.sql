@@ -1,12 +1,15 @@
 /*
-** View creation
+** Creates Views
 ** Jason Ho
+** Akash Puri
+** Austin Woehrle
+** Annie Tao
 */
+
 USE WORKOUT_FACEBOOK;
 
 --Display the top 100 badges sorted by the most total points required to earn each badge
 --In this regard, the badges are ordered by difficulty with the harder badges requiring more points
---DROP VIEW vwDifficultBadges
 CREATE VIEW vwDifficultBadges
 AS
 SELECT TOP 100 b.BadgeName, b.BadgeDesc, SUM(wtb.WorkoutPtsReq) AS PointsRequired
@@ -18,8 +21,8 @@ ORDER BY PointsRequired DESC
 GO
 SELECT * FROM vwDifficultBadges
 
+
 --Display all activities that have occured already today
---DROP VIEW vwTodaysActivities
 CREATE VIEW vwTodaysActivities
 AS
 SELECT pa.ActivityID, u.UserFName, u.UserLName, l.LocationName,
@@ -35,6 +38,7 @@ AND (DATEPART(day, GETDATE()) = DATEPART(day, pa.ActivityStartDate))
 GO
 SELECT * FROM vwTodaysActivities
 
+
 --Displays the highest calorie meals currently in the database
 CREATE VIEW vwHighestCalorieMeals
 AS
@@ -49,6 +53,7 @@ ORDER BY Calories DESC
 GO
 
 SELECT * FROM vwHighestCalorieMeals
+
 
 --Display the top 50 most popular groups based on the total amount of users associated/as members of each
 --Group as well as the group name and description of each group. The list of groups is ordered by the total

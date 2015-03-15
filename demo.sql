@@ -1,5 +1,5 @@
 /*
-** Runs a demo showing off database code
+** This does nothing now, remove it
 ** Jason Ho
 */
 

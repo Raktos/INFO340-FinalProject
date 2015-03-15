@@ -1,6 +1,9 @@
 /*
-** Workout Facebook database creation of the base tables
+** Builds the tables
 ** Jason Ho
+** Akash Puri
+** Austin Woehrle
+** Annie Tao
 */
 
 CREATE DATABASE WORKOUT_FACEBOOK;

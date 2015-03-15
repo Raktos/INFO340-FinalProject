@@ -1,11 +1,16 @@
 /*
-** User-Defined Function creation
+** Creates User Defined Functions
 ** Jason Ho
+** Akash Puri
+** Austin Woehrle
+** Annie Tao
 */
 
 USE WORKOUT_FACEBOOK;
 
---Average Sleep Movement for User
+--Average Sleep Movement for User across all sleeps hat have sleep movement data
+--Takes an int UserID of the user to check
+--Returns the average as a number
 CREATE FUNCTION AverageSleepMovement(@UserID int)
 RETURNS decimal
 
@@ -28,11 +33,14 @@ BEGIN
 END
 GO
 
---SELECT dbo.AverageSleepMovement(1780);
+--Tests on user with ID 1780
+SELECT dbo.AverageSleepMovement(1780);
 
 
 
---Average Calories per Meal for User
+--Average Calories per Meal for User across all meals for that user
+--Takes an int UserID of the user to check
+--Returns the average as a number
 CREATE FUNCTION AverageCaloriesPerMeal(@UserID int)
 RETURNS decimal
 
@@ -58,11 +66,14 @@ BEGIN
 END
 GO
 
---SELECT dbo.AverageCaloriesPerMeal(1511);
+--Tests on user 1511
+SELECT dbo.AverageCaloriesPerMeal(1511);
 
 
 
---Net change in weight for a user
+--Net change in weight for a user, from initial weight to most current weight
+--Takes an int UserID of the user to check
+--Returns the difference as a number
 CREATE FUNCTION UserWeightNetChange(@UserID int) 
 RETURNS decimal
 AS
@@ -87,12 +98,14 @@ BEGIN
 END;
 GO
 
---DROP FUNCTION dbo.UserWeightNetChange;
---SELECT dbo.UserWeightNetChange(1780);
+--Tests on User 1780
+SELECT dbo.UserWeightNetChange(1780);
 
 
 
---Function: Most popular workout location for a given day (IN PROGRESS)
+--Most popular workout location for a given day
+--Takes a date as the date to check
+--returns the name of the most popular location
 CREATE FUNCTION PopularWorkoutLocation(@Date date) 
 RETURNS varchar(60)
 AS
@@ -111,5 +124,5 @@ BEGIN
 END;
 GO
 
---DROP FUNCTION dbo.PopularWorkoutLocation;
---SELECT dbo.PopularWorkoutLocation('2013-11-10');
+--Tests on 11-10-2013
+SELECT dbo.PopularWorkoutLocation('2013-11-10');

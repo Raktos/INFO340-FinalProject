@@ -1,5 +1,11 @@
---Constraints
---Annie Tao, Austin Woehrle, Jason Ho, Akash Puri
+/*
+** Creates Constraints
+** Jason Ho
+** Akash Puri
+** Austin Woehrle
+** Annie Tao
+*/
+
 USE WORKOUT_FACEBOOK;
 
 --Add a constraint that ensures that all users in the database were born more than 12 years ago
@@ -17,8 +23,6 @@ INSERT INTO tblUSER(UserFName, UserLName, UserSex, UserDOB, UserEmail, UserPassH
 VALUES('Akash', 'Puri', 1, '1997-02-02', 'akasd@adfaf.co', 23435, 345) 
 
 
-
---Constraint 2
 --Maintains that the workout end time is not before the workout start time 
 ALTER TABLE tblWORKOUT
 ADD CONSTRAINT workoutTimeCheck
@@ -29,8 +33,6 @@ INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],
 VALUES(1,6,6,'2014-12-02 12:53:44','2011-07-27 10:07:33','vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque',3764,405);
 
 
-
---Constraint 3 
 --Maintains that the planned activity end time is not before the planned activity  start time 
 ALTER TABLE tblPLANNED_ACTIVITY
 ADD CONSTRAINT activityTimeCheck
@@ -41,7 +43,6 @@ INSERT INTO tblPLANNED_ACTIVITY([UserID],[LocationID],[IsGroup],[ActivityName],[
 VALUES(1900,600,0,'Etiam','2014-03-06 00:00:00','2010-03-06 00:00:00');
 
 
---Constraint 4 
 --Maintains that a sleep end time is not before the sleep start time 
 ALTER TABLE tblSLEEP
 ADD CONSTRAINT SleepTimeCheck

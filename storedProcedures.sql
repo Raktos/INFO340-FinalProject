@@ -20,7 +20,8 @@ GO
 
 EXEC dbo.uspUpdateUserHeightWeight 1750, 72, 350;
 
---New User with initial Height Weight
+
+--Creates a procedure to add a new user with an initial Height and Weight
 CREATE PROCEDURE uspInsertUser(
 	@FName varchar(60),
 	@LName varchar(60),
@@ -67,11 +68,12 @@ INSERT INTO tblUSER_HEIGHT_WEIGHT(
 COMMIT TRAN UserInsert;
 GO
 
+--tests with new user John Holt
 EXEC dbo.uspInsertUser 'John','Holt',0,'3-15-1987','email@email.com','878954',100,150.54,66.57;
 SELECT * FROM tblUSER;
 
 
---Stored Procedure: update user activity 
+--Creates a stored procedure to update a user's planned activity 
 CREATE PROCEDURE uspActivityUpdate
 	@ActivityID int,
 	@UserID int,
@@ -94,13 +96,11 @@ WHERE ActivityID = @ActivityID
 COMMIT TRAN updateActivity;
 GO
 
-DROP PROCEDURE dbo.uspActivityUpdate
-
+--testing it
 EXEC dbo.uspActivityUpdate 5003,1900,600,'UPDATED','2013-03-06 11:11:11.000','2014-03-06 11:11:11.000','UPDATED DESCRIPTION';
 
 
---Stored Procedure: Insert New User Workout
-
+--Stored Procedure to insert a new workout
 CREATE PROCEDURE uspInsertWorkout(
 	@UserID int,
 	@WorkoutTypeID int,
@@ -135,5 +135,5 @@ INSERT INTO tblWORKOUT(
 COMMIT TRAN WorkoutInsert;
 GO
 
-DROP PROCEDURE dbo.uspInsertWorkout;
+--testing it
 EXEC dbo.uspInsertWorkout 54033,71,792,'2013-03-10 11:11:11.000','2014-03-10 11:11:11.000','UPDATED BEST WORKOUT EVER', 1000,500;

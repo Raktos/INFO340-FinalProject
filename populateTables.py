@@ -45,7 +45,7 @@ adjectives = open('autogen/adjectives.txt').read().splitlines()
 adverbs = open('autogen/adverbs.txt').read().splitlines()
 
 # Generate stuff
-gen_users = generate.users(names, domains, 1950, 2002, n)
+gen_users = generate.users(names, domains, 1950, 2001, n)
 gen_groups = generate.groups(workouts, nouns, quotes, int(n / 10))
 print(str(datetime.datetime.now()) + " | " + "generation finished...")
 
@@ -101,7 +101,7 @@ print(str(datetime.datetime.now()) + " | " + "badges finished...")
 insert.insert_workout_type_badge(conn, int(n / 10))
 print(str(datetime.datetime.now()) + " | " + "workout type badge associations finished...")
 
-insert.insert_planned_activity(conn, 2010, 2014, adjectives, workouts, workout_comments, 4 * n)
+insert.insert_planned_activity(conn, 2016, 2017, adjectives, workouts, workout_comments, 4 * n)
 print(str(datetime.datetime.now()) + " | " + "planned activities finished...")
 
 insert.insert_group_workout_type(conn, int(n / 5))
