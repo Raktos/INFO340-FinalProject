@@ -52,3 +52,7 @@ contains all the insert functions
 
 generate.py
 contains random user and group generation functions
+
+db.json
+login crednetials to the database.
+not contained in the git repository, must be created for the scripts to run
