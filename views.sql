@@ -50,4 +50,16 @@ GO
 
 SELECT * FROM vwHighestCalorieMeals
 
---Displays 
+--Display the top 50 most popular groups based on the total amount of users associated/as members of each
+--Group as well as the group name and description of each group. The list of groups is ordered by the total
+--amount of users within the group from largest group descending
+CREATE VIEW vwMostPopularGroups
+AS
+SELECT TOP 50 g.GroupID, g.GroupName, g.GroupDesc, COUNT(ug.UserID) AS TotalGroupMembers
+FROM tblGROUP g
+	JOIN tblUSER_GROUPs ug
+		ON g.GroupID = ug.GroupID
+GROUP BY g.GroupID, g.GroupName, g.GroupDesc
+ORDER BY TotalGroupMembers DESC
+GO
+SELECT * FROM vwMostPopularGroups
