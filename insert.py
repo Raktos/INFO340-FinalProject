@@ -1,6 +1,6 @@
 __author__ = 'Jason Ho'
 
-import _mssql
+import _mssql # DEPENDANT ON pymssql MODULE
 import random
 import datetime
 import generate
