@@ -4,6 +4,10 @@
 ** Akash Puri
 ** Austin Woehrle
 ** Annie Tao
+**
+** This sql will no longer run. Since we used the python code ID's have changed, 
+** the Id's we grabbed manually do not exist anymore so many of these INSERTs will
+** fail foreign key constraints
 */
 
 USE WORKOUT_FACEBOOK
