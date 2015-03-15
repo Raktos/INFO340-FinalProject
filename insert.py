@@ -102,8 +102,8 @@ def insert_users(conn, users):
     for user in users:
         new_query = "INSERT INTO tblUSER([UserFName],[UserLName],[UserSex],[UserDOB],[UserEmail],[UserPassHash],[UserPassSalt]) VALUES('%s','%s',%s,'%s','%s','%s',%s);" % (user['FName'], user['LName'], user['sex'], user['dob'], user['email'], user['passHash'], user['salt'])
         query += new_query
-        # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+        conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # insets n rows of biometric data
@@ -121,8 +121,8 @@ def insert_user_biometrics(conn, n):
 
         new_query = "INSERT INTO tblUSER_HEIGHT_WEIGHT([UserID],[HWDate],[UserHeight],[UserWeight]) VALUES(%s,'%s',%s,%s);" % (user, entry_date.isoformat(), height, weight)
         query += new_query
-        # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+        conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # inserts n messages from a list of messages
@@ -139,8 +139,8 @@ def insert_messages(conn, messages, n):
 
         new_query = "INSERT INTO tblMESSAGE([MessageRecipietUserID],[MessageSenderUserID],[MessageContent]) VALUES(%s,%s,'%s');" % (user1, user2, message)
         query += new_query
-        # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+        conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # inserts n friend connections
@@ -171,8 +171,8 @@ def insert_friends(conn, n):
             friend_sets[str(user1)].append(user2)
             new_query = "INSERT INTO tblUSER_FRIEND([UserID1],[UserID2]) VALUES(%d,%d);" % (user1, user2)
             query += new_query
-            # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+            conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # insert n sleeps between starting and ending year with comment from list of comments
@@ -193,8 +193,8 @@ def insert_sleep(conn, start_year, end_year, comments, n):
 
         new_query = "INSERT INTO tblSLEEP([UserID],[SleepStartTime],[SleepEndTime],[SleepComment]) VALUES(%s,'%s','%s','%s');" % (user, sleep_start.isoformat(), sleep_end.isoformat(), comment)
         query += new_query
-        # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+        conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # insert sleep band data, must be tied to and during an existing sleep
@@ -222,8 +222,8 @@ def insert_sleep_band(conn, n):
 
         new_query = "INSERT INTO tblSLEEP_BAND_DATA([SleepID],[SleepBandDataTime],[SleepMovementData]) VALUES(%d,'%s',%d);" % (sleepid, data_time.isoformat(), random.randint(1, 100))
         query += new_query
-        # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+        conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # inserts groups with names from workouts and nouns
@@ -232,8 +232,8 @@ def insert_group(conn, groups):
     for group in groups:
         new_query = "INSERT INTO tblGROUP([GroupName],[GroupDesc]) VALUES('%s','%s');" % (group['name'], group['desc'])
         query += new_query
-        # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+        conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # insert n users into groups
@@ -266,8 +266,8 @@ def insert_user_group(conn, n):
             user_group_sets[user].append(group)
             new_query = "INSERT INTO tblUSER_GROUPS([UserID],[GroupID]) VALUES(%s,%d);" % (user, group)
             query += new_query
-            # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+            conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # insert n meals, too lazy to do the sleeping check or a workout one, they can do both (or all 3) at once if they want
@@ -282,8 +282,8 @@ def insert_meal(conn, comments, n):
 
         new_query = "INSERT INTO tblMEAL([UserID],[MealDate],[MealComment]) VALUES(%d,'%s','%s');" % (userids[random.randint(0, len(userids) - 1)], meal_date.isoformat(), comment)
         query += new_query
-        # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+        conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # inserts list of food groups
@@ -305,8 +305,8 @@ def insert_food_groups(conn, food_groups, descs):
 
             new_query = "INSERT INTO tblFOOD_GROUP([FoodGroupName],[FoodGroupDesc]) VALUES('%s','%s');" % (food_group, desc)
             query += new_query
-            # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+            conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # insert n meal_items
@@ -325,8 +325,8 @@ def insert_meal_item(conn, food, n):
 
         new_query = "INSERT INTO tblMEAL_ITEM([MealID],[FoodGroupID],[MealItemDesc],[MealItemCalories]) VALUES(%d,%d,'%s',%d);" % (mealids[random.randint(0, len(mealids) - 1)], food_groupids[random.randint(0, len(food_groupids) - 1)], food_name, random.randint(0, 1000))
         query += new_query
-        # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+        conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # insert n locations
@@ -337,8 +337,8 @@ def insert_location(conn, names, types, workouts, n):
 
         new_query = "INSERT INTO tblLOCATION([LocationName],[LocationLat],[LocationLong]) VALUES('%s',%s,%s);" % (name, random.uniform(0, 180), random.uniform(0, 180))
         query += new_query
-        # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+        conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # insert list of workout types
@@ -360,8 +360,8 @@ def insert_workout_type(conn, workouts, descs):
 
             new_query = "INSERT INTO tblWORKOUT_TYPE([WorkoutTypeName],[WorkoutTypeDesc],[WorkoutBasePts]) VALUES('%s','%s',%d);" % (workout, desc, random.randint(1, 100))
             query += new_query
-            # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+            conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # Inserts n workouts
@@ -392,8 +392,8 @@ def insert_workout(conn, start_year, end_year, comments, n):
 
         new_query = "INSERT INTO tblWORKOUT([UserID],[WorkoutTypeID],[LocationID],[WorkoutStartTime],[WorkoutEndTime],[WorkoutComment],[WorkoutBandSteps],[WorkoutCaloriesBurned]) VALUES(%d,%d,%d,'%s','%s','%s',%d,%d);" % (userids[random.randint(0, len(userids) - 1)], workout_typeids[random.randint(0, len(workout_typeids) - 1)], locationids[random.randint(0, len(locationids) - 1)], workout_start.isoformat(), workout_end.isoformat(), comment, steps, calories)
         query += new_query
-        # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+        conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # insert workout band data, must be tied to and during an existing sleep
@@ -422,8 +422,8 @@ def insert_workout_band(conn, n):
 
         new_query = "INSERT INTO tblWORKOUT_BAND_DATA([WorkoutID],[WorkoutBandDataTime],[WorkoutHeartRate]) VALUES(%d,'%s',%d);" % (workoutid, data_time.isoformat(), random.randint(1, 100))
         query += new_query
-        # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+        conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # insert n badges
@@ -438,8 +438,8 @@ def insert_badge(conn, adverbs, adjectives, comments, n):
 
         new_query = "INSERT INTO tblBADGES([BadgeName],[BadgeDesc]) VALUES('%s','%s');" % (name, comment)
         query += new_query
-        # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+        conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # insert n workoutType Badge associations
@@ -472,8 +472,8 @@ def insert_workout_type_badge(conn, n):
             badge_type_sets[badge].append(workout_type)
             new_query = "INSERT INTO tblWORKOUT_TYPE_BADGES([WorkoutTypeID],[BadgeID],[WorkoutPtsReq]) VALUES(%d,%s,%d);" % (workout_type, badge, random.randint(5000, 10000))
             query += new_query
-            # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+            conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # inserts n planned activities
@@ -497,8 +497,8 @@ def insert_planned_activity(conn, start_year, end_year, adjectives, workouts, co
 
         new_query = "INSERT INTO tblPLANNED_ACTIVITY([UserID],[LocationID],[IsGroup],[ActivityName],[ActivityStartDate],[ActivityEndDate],[ActivityDesc]) VALUES(%d,%d,%d,'%s','%s','%s','%s');" % (user, location, random.randint(0, 1), name, activity_start.isoformat(), activity_end.isoformat(), comment)
         query += new_query
-        # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+        conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # insert n workoutType Group associations
@@ -531,8 +531,8 @@ def insert_group_workout_type(conn, n):
             group_type_sets[group].append(workout_type)
             new_query = "INSERT INTO tblGROUP_WORKOUT_TYPE([GroupID],[WorkoutTypeID]) VALUES(%s,%d);" % (group, workout_type)
             query += new_query
-            # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+            conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
 
 
 # insert n Activity Group associations
@@ -571,5 +571,5 @@ def insert_group_activity(conn, n):
                 activity_group_sets[activity].append(group)
                 new_query = "INSERT INTO tblGROUP_ACTIVITY([GroupID],[ActivityID]) VALUES(%d,%s);" % (group, activity)
                 query += new_query
-                # conn.execute_non_query(new_query) # High sucess rate, very slow
-    conn.execute_non_query(query) # Low success rate, much faster than above
+                conn.execute_non_query(new_query) # High sucess rate, very slow
+    # conn.execute_non_query(query) # Low success rate, much faster than above, prone to running out of memory on huge batches
