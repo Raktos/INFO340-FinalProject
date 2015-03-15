@@ -22,7 +22,7 @@ GO
 SELECT * FROM vwDifficultBadges
 
 
---Display all activities that have occured already today
+--Display all activities that have occured or are scheduled to occur today
 CREATE VIEW vwTodaysActivities
 AS
 SELECT pa.ActivityID, u.UserFName, u.UserLName, l.LocationName,
