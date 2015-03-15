@@ -56,3 +56,7 @@ contains random user and group generation functions
 db.json
 login crednetials to the database.
 not contained in the git repository, must be created for the scripts to run
+
+
+
+All code stored at https://github.com/Raktos/INFO340-FinalProject
